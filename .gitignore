@@ -12,7 +12,6 @@ cypress/videos
 cypress/screenshots
 cypress/reports/cucumber-json
 cypress/cucumber-json
-screenshots/
 
 # Cucumber
 cucumber-report.html

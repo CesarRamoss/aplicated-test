@@ -17,6 +17,28 @@ Feature: Search for apartments
     Then the results should be filtered
 
     Examples:
-      | search_text |
+      | search_text      |
       | "São Paulo - SP" |
-      | "Curitiba - PR" |
+      | "Curitiba - PR"  |
+
+  Scenario: Search for apartments in <search_text>
+    Given I fill the search input with the <search_text> term on the Search Engine page
+    And I click on the <search_text> checkbox
+    And I select the duplex checkbox in the property type dropdown
+    And I click on the Alugar tab
+    When I click on the search button
+    Then the search results page should be visible
+    When I filter the results
+    Then the results should be filtered
+
+    Examples:
+      | search_text     | 
+      | "Texas - USA"   |
+      | "Campinas - SP" |
+
+       
+
+
+      
+
+
