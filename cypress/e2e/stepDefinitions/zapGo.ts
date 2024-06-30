@@ -1,31 +1,48 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import HomePage from '../pages/zapImoveis/HomePage';
+import SearchPage from '../pages/zapImoveis/SearchPage';
 
-Given(
+Given('I go to the Zap page', () => {
+  HomePage.openHomePage();
+});
+
+When('I click on the location tab', () => {
+  HomePage.clickLocationTab();
+});
+
+When('I click on the dropdown all properties', () => {
+  HomePage.clickDropdownAllProperties();
+});
+
+When('I select the coverage checkbox', () => {
+  HomePage.selectCoverageCheckbox('Cobertura');
+});
+
+When(
   /^I fill the search input with the "([^"]*)" term on the Search Engine page$/,
-  function (value: string) {
-    console.log('I fill the search input with the' + value);
-    HomePage.fillSearch(value);
+  (value: string) => {
+    HomePage.fillSearchInput(value);
   },
 );
 
-Given('I go to the Zap page', function () {
-  HomePage.open();
-});
-
 When('I click on the search button', () => {
-  HomePage.click();
+  HomePage.clickSearchButton();
 });
 
 Then('I click on the location checkbox', () => {
   HomePage.clickLocationCheckbox();
 });
 
-Then(
-  'the text {string} should be visible on the result page on the Search Engine page',
-  function (value) {
-    console.log(
-      `the text ${value} should be visible on the result page on the Search Engine page`,
-    );
-  },
-);
+When('I click on mobiliado', () => {
+  SearchPage.selectFilterByText('Mobiliado');
+});
+
+When('I click on aceita pets', () => {
+  SearchPage.selectFilterByText('Aceita pets');
+});
+
+Then('the results list should be visible', function (value: string) {
+  console.log(
+    `the text ${value} should be visible on the result page on the Search Engine page`,
+  );
+});
