@@ -1,12 +1,13 @@
 ## 🚀 Teste de qualidade com Cypress automation 🚀
 
-Neste hands-on recebi a solicitaçao de testar um cenário, tendo como base o site do Zap Imoveis, onde deveria ser feito a seguinte ação pelo usuário:
+Neste hands-on, recebi a solicitação de testar um cenário, tendo como base o site do ZAP Imóveis, onde o usuário deveria realizar a seguinte ação:
 
-Dado que estou na página inicial do portal ZAP imóveis
-Quando pesquiso uma cobertura para alugar na cidade de São Paulo
-E a cobertura deve aceitar Pets
-E deve estar pronta para morar
-Então a lista de resultados é mostrada
+<em> </br> Dado que estou na página inicial do portal ZAP imóveis
+</br>Quando pesquiso uma cobertura para alugar na cidade de São Paulo
+</br>E a cobertura deve aceitar Pets
+</br>E deve estar pronta para morar
+</br>Então a lista de resultados é mostrada
+</em>
 
 ### ✨ Instalação e uso da arquitetura
 
@@ -39,8 +40,8 @@ OBS: Para garantia da aplicação recomendo utilizar o navegador Electron que j�
 
 ---
 
-- Temos neste projeto 2 testes onde o usuário busca por cidades de São Paulo e Curitiba e consegue realizar todo o fluxo de encontrar por cobertura que aceite pets e esteja pronto para morar (Mobiliado)
-- Temos 2 cenários infelizes, onde o usuário busca por uma localidade inexistente na base ("Texas - USA") e/ou um tipo de imóvel que não existe na filtragem inicial do tipo Duplex
+- Neste projeto, temos dois testes onde o usuário busca por imóveis nas cidades de São Paulo e Curitiba e consegue realizar todo o fluxo de encontrar uma cobertura que aceite pets e esteja pronta para morar (mobiliada). </br></br>
+- Temos dois cenários negativos, onde o usuário busca por uma localidade inexistente na base ("Texas - USA") e/ou por um tipo de imóvel que não existe na filtragem inicial, como Duplex. </br>
 
 ![testes_cypress](./assets/testes.png)
 
@@ -50,14 +51,14 @@ OBS: Para garantia da aplicação recomendo utilizar o navegador Electron que j�
 
 ---
 
-O desafio proposto inicialmente estava sendo feito com base no navegador Chrome, porém por vários momentos foi identificado um problema quanto ao Cookies armazenados especificamente com o site do zap imoveis, sendo necessário de início a limpeza de todos para o início dos testes e posteriormente na segunda etapa quando o usuário é direcionado para a próxima tela com os resultados de locação filtrados, ocorria um erro 403 e ao realizar a exclusão dos cookies manualmente, a página re-renderizada ficava visível. Mesmo após inúmeras tentativas de alterar o config do cypress com parametros como:
+O desafio proposto inicialmente estava sendo realizado com base no navegador Chrome. No entanto, em vários momentos, foi identificado um problema relacionado aos cookies armazenados especificamente pelo site do ZAP Imóveis. De início, era necessário limpar todos os cookies para iniciar os testes. Posteriormente, na segunda etapa, quando o usuário era direcionado para a próxima tela com os resultados de locação filtrados, ocorria um erro 403. Ao realizar a exclusão manual dos cookies, a página re-renderizada ficava visível. Mesmo após inúmeras tentativas de alterar a configuração do Cypress com parâmetros como:
 
 - chromeWebSecurity: false,
 - cy.clearAllCookies() dentro do beforeEach ou mesmo fora durante o teste
 - "failOnStatusCode": false
 - alteraçao do baseUrl, userAgent no config do cypress
 
-Não houveram mudanças significativas, porém com o navegador Electron, fluiu perfeitamente. Neste momento devido ao prazo de entrega, segui desenvolvendo por esta abordagem.
+Não houveram mudanças significativas, porém com o navegador Electron, fluiu perfeitamente. Neste momento devido ao prazo de entrega, segui desenvolvendo com esta abordagem.
 
 ### License
 
