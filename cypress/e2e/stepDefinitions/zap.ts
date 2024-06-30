@@ -51,3 +51,7 @@ When('I filter the results', () => {
 Then('the results should be filtered', () => {
   SearchPage.checkUrlIncludes(searchData.urlChecks.filtersApplied);
 });
+
+Given('dont will be results', () => {
+  HomePage.notResults();
+});

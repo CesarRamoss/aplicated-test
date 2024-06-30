@@ -8,6 +8,7 @@ class HomePage {
   private static CSS_SEARCH_BUTTON = '[data-cy="submit"] button[type="submit"]';
   private static CSS_LOCATION_CHECKBOX_LABEL =
     '[data-cy="locations-item"] label';
+  private static CSS_NO_RESULTS = '.locations-feedback';
 
   static open(): void {
     cy.visit('https://www.zapimoveis.com.br/');
@@ -41,6 +42,11 @@ class HomePage {
       .prev()
       .find('input[type=checkbox]')
       .check();
+  }
+
+  static notResults(): void {
+    const text = `Não há resultados para esta localização`;
+    cy.get(HomePage.CSS_NO_RESULTS).should('contain', text);
   }
 }
 

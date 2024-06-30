@@ -41,24 +41,11 @@ OBS: Para garantia da aplicação recomendo utilizar o navegador Electron que j�
 ---
 
 - Neste projeto, temos dois testes onde o usuário busca por imóveis nas cidades de São Paulo e Curitiba e consegue realizar todo o fluxo de encontrar uma cobertura que aceite pets e esteja pronta para morar (mobiliada). </br></br>
-- Temos dois cenários negativos, onde o usuário busca por uma localidade inexistente na base ("Texas - USA") e/ou por um tipo de imóvel que não existe na filtragem inicial, como Duplex. </br>
+- Temos dois testes negativos, onde o usuário busca por uma localidade inexistente na base "Texas - USA" e "Sidney - Austrália" sendo inviável a continuação do fluxo proposto </br>
 
 ![testes_cypress](./assets/testes.png)
 
 ![testes_cypress](./assets/testes_cypress.gif)
-
-### 🚀 Desafios
-
----
-
-O desafio proposto inicialmente estava sendo realizado com base no navegador Chrome. No entanto, em vários momentos, foi identificado um problema relacionado aos cookies armazenados especificamente pelo site do ZAP Imóveis. De início, era necessário limpar todos os cookies para iniciar os testes. Posteriormente, na segunda etapa, quando o usuário era direcionado para a próxima tela com os resultados de locação filtrados, ocorria um erro 403. Ao realizar a exclusão manual dos cookies, a página re-renderizada ficava visível. Mesmo após inúmeras tentativas de alterar a configuração do Cypress com parâmetros como:
-
-- chromeWebSecurity: false,
-- cy.clearAllCookies() dentro do beforeEach ou mesmo fora durante o teste
-- "failOnStatusCode": false
-- alteraçao do baseUrl, userAgent no config do cypress
-
-Não houveram mudanças significativas, porém com o navegador Electron, fluiu perfeitamente. Neste momento devido ao prazo de entrega, segui desenvolvendo com esta abordagem.
 
 ### License
 
