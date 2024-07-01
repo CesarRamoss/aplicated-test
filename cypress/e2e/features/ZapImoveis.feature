@@ -18,13 +18,13 @@ Feature: Search for apartments
 
     Examples:
       | search_text      |
-      | "São Paulo - SP" |
+      | "São Paulo - SP" |                                           
       | "Curitiba - PR"  |
 
   Scenario Outline: Search for apartments in <search_text> and not found
     Given I fill the search input with the <search_text> term on the Search Engine page    
-    But dont will be results
-
+    But there are no results                                                          
+                            
     Examples:
       | search_text          | 
       | "Texas - USA"        |

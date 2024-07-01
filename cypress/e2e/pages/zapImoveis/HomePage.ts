@@ -10,8 +10,8 @@ class HomePage {
     '[data-cy="locations-item"] label';
   private static CSS_NO_RESULTS = '.locations-feedback';
 
-  static open(): void {
-    cy.visit('https://www.zapimoveis.com.br/');
+  static open(url: string): void {
+    cy.visit(url);
     cy.get('body').should('be.visible');
     cy.clearCookies();
   }
@@ -44,8 +44,7 @@ class HomePage {
       .check();
   }
 
-  static notResults(): void {
-    const text = `Não há resultados para esta localização`;
+  static notResults(text: string): void {
     cy.get(HomePage.CSS_NO_RESULTS).should('contain', text);
   }
 }

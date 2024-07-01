@@ -12,7 +12,7 @@ before(() => {
 });
 
 Given('I go to the Zap page', () => {
-  HomePage.open();
+  HomePage.open(searchData.urlChecks.homePage);
 });
 
 Given(
@@ -52,6 +52,6 @@ Then('the results should be filtered', () => {
   SearchPage.checkUrlIncludes(searchData.urlChecks.filtersApplied);
 });
 
-Given('dont will be results', () => {
-  HomePage.notResults();
+Given('there are no results', () => {
+  HomePage.notResults(searchData.notFound);
 });
